@@ -10,15 +10,15 @@ export const Titulo = styled.h1`
 
 `
 export const Principal = styled.section`
-  display:flex
+  display:flex;
   height: 90vh;
   width:100%;
   justify-content:  center;
-  align-items: center;
   color: #384b9a;
  
 
 `
+;
 export const Caderno = styled.div`
   background-color: #fcf5a3;
   width: 36vw;
@@ -26,8 +26,9 @@ export const Caderno = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
-  border: solid black  
+  border: solid black; 
 }
+
 button{
     border-radius: 1vh;
     color:white;
@@ -35,10 +36,11 @@ button{
     border:none;
     width:6vw;
     height:3.5vh;
-    cursor:pointer
+    cursor:pointer;
 }
 
 `
+
 export const Form = styled.form`
     width: 33vw;
     height: 10vh;
@@ -60,9 +62,9 @@ export const Quant = styled.input`
       
         
     }
-
+  
 `
-
+;
 export const Produto = styled.input`
     width: 10vw;
     height: 3vh;
@@ -78,7 +80,7 @@ export const Produto = styled.input`
     
 }
 `
-
+;
 export const Result = styled.div`
   display:flex;
   width:33vw;
@@ -113,9 +115,13 @@ button{
     height:3.5vh
 }
 `
+
+;
 export const Label = styled.div`
   display: flex;
   flex-direction: row-reverse;
 
 `
+
+
 

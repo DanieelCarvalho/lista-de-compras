@@ -1,134 +1,85 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Titulo, Principal, Caderno, Result, Quant, Produto, Form, Label } from "./Style";
 
-
-export default class Main extends Component {
-  state = {
-    task: "",
-    TaskList: [],
-    num: "",
-    check: "",
-  };
-
-  handleChange = (event) => {
-    this.setState({
-      task: event.target.value
-    });
-  };
-
-  handleChange2 = (event) => {
-    const { num } = this.state
-    this.setState({
-      num: event.target.value
-    })
-  };
+function Main() {
 
 
-  handleEnter = (e) => {
-    e.preventDefault();
-  };
+  const [tarefas, setTarefas] = useState("");
+  const [listaDeTarefas, setLista] = useState([]);
+  const [num, setNum] = useState("")
+
+  console.log(listaDeTarefas);
+
+  const nome = { tarefas: tarefas, num: num, id: Date.now() };
 
 
-  handleClick = () => {
-    const { task, TaskList, num } = this.state;
-    if (task === "" || num === "") {
-      return;
-
-    } else {
-      this.setState({
-        TaskList: TaskList.concat({
-          task: task,
-          num: num,
-          id: Date.now()
-
-        }),
-        task: "",
-        num: "",
-
-
-      });
+  const handleClick = () => {
+    if (tarefas === "") {
     }
-
-  };
-  Limpar = (id) => {
-    const { task, TaskList, num } = this.state;
-    this.setState({
-      TaskList: TaskList.filter((item) => {
-        return;
-      })
-    });
-
-  }
-
-  remover = (id) => {
-    const { TaskList } = this.state;
-    this.setState({
-      TaskList: TaskList.filter((item) => {
-        return item.id !== id;
-      })
-    });
-
+    else {
+      setLista([...listaDeTarefas, nome]);
+    }
+    setTarefas("");
+    setNum("");
   };
 
+  const Remove = (id) => {
+    setLista(listaDeTarefas.filter((item) => item.id !== id));
+  };
 
-
-  render() {
-    return (
-      <Principal>
-        <Caderno>
-          <Titulo>Lista de Compras:</Titulo>
-
-          <Form
-            onSubmit={this.handleEnter}>
-
-            <Quant
-              placeholder="Quantidade"
-              value={this.state.num}
-              min="0"
-              type="Number"
-              
-              onChange={this.handleChange2}
-            />
-
-            <Produto placeholder="Produto"
-              type="text"
-              value={this.state.task}
-              onChange={this.handleChange}
-            />
-
-            <button onClick={this.handleClick}>Anotar</button>
-            <button onClick={this.Limpar}>Limpar</button>
-          </Form>
-
-          <div>
-            {this.state.TaskList.map((item, index) => (
-
-              <Result>
-                <p key={index}>{item.num}</p>
-                
-                <Label>
-                  <input  type="checkbox" />
-                  
-                  <label  key={index}>{item.task}
-                  
-                  </label>
-                  
-                </Label>
-                <button
-                  onClick={() => {
-                    this.remover(item.id);
-                  }}
-                >
-                  Remover
-                </button>
-              </Result>
-
-            ))}
-
-
-          </div>
-        </Caderno>
-      </Principal>
-    );
+  const limpar = () => {
+    setLista(listaDeTarefas.filter((item) => item.return));
   }
+
+  return (
+    <Principal>
+      <Caderno>
+        <Titulo>Lista de Compras</Titulo>
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <Quant value={num} type="Number" min="0" placeholder="Quantidade" onChange={(e) => {
+            setNum(e.target.value)
+          }} />
+
+          <Produto type="text"
+            value={tarefas}
+            onChange={(e) => {
+              setTarefas(e.target.value);
+            }}
+          />
+          <button onClick={() => handleClick()}>Anotar</button>
+          <button onClick={() => limpar()}> Limpar</button>
+        </Form>
+
+        <div>
+          {listaDeTarefas.map((item, index) => (
+            <Result key={index}>
+              <p>{item.num}</p>
+
+              <Label>
+                <input type="checkbox" />
+
+                <label key={index}> {item.tarefas} </label>
+
+              </Label>
+              <button
+                onClick={() => {
+                  Remove(item.id);
+                }}
+              >
+                Remover
+              </button>
+            </Result>
+          ))}
+        </div>
+      </Caderno>
+    </Principal>
+  );
 }
+
+
+
+export default Main;
