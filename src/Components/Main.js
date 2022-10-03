@@ -14,7 +14,7 @@ function Main() {
 
 
   const handleClick = () => {
-    if (tarefas === "") {
+    if (tarefas === "" || num === "") {
     }
     else {
       setLista([...listaDeTarefas, nome]);
@@ -46,6 +46,7 @@ function Main() {
 
           <Produto type="text"
             value={tarefas}
+            placeholder="Produto"
             onChange={(e) => {
               setTarefas(e.target.value);
             }}
