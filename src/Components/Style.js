@@ -12,10 +12,9 @@ export const Titulo = styled.h1`
 export const Principal = styled.section`
   display:flex;
   width:100%;
-  height: 100vh;
+  height: 657px;
   justify-content:  center;
   color: #384b9a;
- 
 
 `
 ;
