@@ -12,6 +12,7 @@ export const Titulo = styled.h1`
 export const Principal = styled.section`
   display:flex;
   width:100%;
+  height: 725px;
   justify-content:  center;
   color: #384b9a;
  
@@ -21,7 +22,8 @@ export const Principal = styled.section`
 export const Caderno = styled.div`
   background-color: #fcf5a3;
   width: 36vw;
-  height: 99vh;
+  height: 100%;
+
   display:flex;
   flex-direction: column;
   align-items: center;
