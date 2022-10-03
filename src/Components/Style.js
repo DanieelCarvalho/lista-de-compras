@@ -12,7 +12,7 @@ export const Titulo = styled.h1`
 export const Principal = styled.section`
   display:flex;
   width:100%;
-  height: 725px;
+  height: 100vh;
   justify-content:  center;
   color: #384b9a;
  
@@ -22,7 +22,6 @@ export const Principal = styled.section`
 export const Caderno = styled.div`
   background-color: #fcf5a3;
   width: 36vw;
-  height: 100%;
 
   display:flex;
   flex-direction: column;
@@ -40,6 +39,7 @@ button{
 
 } @media screen and (max-width: 1023px) {
   width: 100%;
+  border: none;
   button{
     height:40%;
   }

@@ -12,6 +12,10 @@ body{
     box-sizing:border-box;
     background:#7d7d7d;
     font-family: 'Roboto Mono', monospace;
+    @media screen and (max-width: 1023px){
+      background-color: #fcf5a3;
+    }
+   
 }
     `
 
