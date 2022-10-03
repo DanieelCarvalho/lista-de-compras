@@ -11,7 +11,6 @@ export const Titulo = styled.h1`
 `
 export const Principal = styled.section`
   display:flex;
-  height: 90vh;
   width:100%;
   justify-content:  center;
   color: #384b9a;
@@ -36,8 +35,12 @@ button{
     width:82px;
     height:22px;
     cursor:pointer;
+
 } @media screen and (max-width: 1023px) {
   width: 100%;
+  button{
+    height:40%;
+  }
 
   }
  
@@ -68,6 +71,7 @@ export const Quant = styled.input`
     }
     @media screen and (max-width: 1023px) {
     width: 25vw;
+    
   }
 `
 ;
@@ -144,7 +148,7 @@ input:checked + label {
 }
 button{
     width:25vw;
-    height:90%;
+    height:80%;
 
 
   }
